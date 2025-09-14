@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bindhu’s Tasks</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #333;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .navbar li {
+      position: relative;
+    }
+    .navbar a {
+      color: white;
+      padding: 10px 15px;
+      display: block;
+      text-decoration: none;
+    }
+    .navbar a:hover {
+      background: #555;
+    }
+    /* Dropdown */
+    .navbar ul ul {
+      display: none;
+      position: absolute;
+      background: #444;
+      top: 100%;
+      left: 0;
+      min-width: 150px;
+    }
+    .navbar ul li:hover > ul {
+      display: block;
+    }
+
+    /* Layout (Sidebar + Main) */
+    .layout {
+      flex: 1;
+      display: flex;
+    }
+    .sidebar {
+      width: 200px;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .main {
+      flex: 1;
+      padding: 20px;
+      background: #fafafa;
+    }
+
+    /* Cards inside main */
+    .cards {
+      display: flex;
+      gap: 20px;
+    }
+    .card {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Image Gallery (Grid) */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 6px;
+    }
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Sticky Footer */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: sticky;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#">Menu ▼</a>
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+        </ul>
+      </li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Flex Layout -->
+  <div class="layout">
+    <aside class="sidebar">
+      <h3>Sidebar</h3>
+      <p>Links, menus, or info here.</p>
+    </aside>
+
+    <main class="main">
+      <h2>Main Content</h2>
+
+      <!-- Cards -->
+      <div class="cards">
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+      </div>
+
+      <!-- Image Gallery -->
+      <div class="gallery">
+        <img src="https://via.placeholder.com/300" alt="Image 1">
+        <img src="https://via.placeholder.com/300" alt="Image 2">
+        <img src="https://via.placeholder.com/300" alt="Image 3">
+        <img src="https://via.placeholder.com/300" alt="Image 4">
+      </div>
+    </main>
+  </div>
+
+  <!-- Sticky Footer -->
+  <footer>
+    <p>Sticky Footer © 2025</p>
+  </footer>
+
+</body>
+</html>
