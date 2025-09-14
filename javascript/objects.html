@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Objects Demo</title>
+</head>
+<body>
+  <h2>JavaScript Objects Output</h2>
+  <pre id="output"></pre>
+
+  <script>
+    // Helper function
+    function print(msg) {
+      document.getElementById("output").innerHTML += msg + "\n";
+    }
+
+    // 1. Object creation
+    let person = {
+      name: "Bindu",
+      age: 21,
+      city: "Hyderabad"
+    };
+    print("1. Object: " + JSON.stringify(person));
+
+    // 2. Access properties
+    print("2. Name: " + person.name);
+    print("2. City: " + person["city"]);
+
+    // 3. Add new property
+    person.country = "India";
+    print("3. After adding country: " + JSON.stringify(person));
+
+    // 4. Modify property
+    person.age = 22;
+    print("4. After modifying age: " + JSON.stringify(person));
+
+    // 5. Delete property
+    delete person.city;
+    print("5. After deleting city: " + JSON.stringify(person));
+
+    // 6. Methods inside object
+    let student = {
+      name: "Sri",
+      marks: 85,
+      greet: function () {
+        return "Hello, " + this.name;
+      }
+    };
+    print("6. Method call: " + student.greet());
+
+    // 7. Nested objects
+    let car = {
+      brand: "Toyota",
+      model: "Fortuner",
+      engine: {
+        type: "Diesel",
+        power: "2000cc"
+      }
+    };
+    print("7. Nested object: " + car.engine.type + ", " + car.engine.power);
+
+    // 8. Object.keys()
+    print("8. Object.keys(person): " + Object.keys(person));
+
+    // 9. Object.values()
+    print("9. Object.values(person): " + Object.values(person));
+
+    // 10. Object.entries()
+    print("10. Object.entries(person): " + JSON.stringify(Object.entries(person)));
+
+    // 11. for...in loop over object
+    print("11. for...in loop:");
+    for (let key in person) {
+      print(key + " → " + person[key]);
+    }
+  </script>
+</body>
+</html>

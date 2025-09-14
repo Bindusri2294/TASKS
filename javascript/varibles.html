@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Variables Demo</title>
+</head>
+<body>
+  <h2>JavaScript Variables Output</h2>
+  <pre id="output"></pre>
+
+  <script>
+    // Helper function to print output to the page
+    function print(msg) {
+      document.getElementById("output").innerHTML += msg + "\n";
+    }
+
+    // 1. var → function-scoped, can be redeclared & updated
+    var name = "Bindu";
+    print("var name = " + name);
+    var name = "Sri"; // re-declared allowed
+    print("var name (after redeclare) = " + name);
+
+    // 2. let → block-scoped, cannot be redeclared in same scope, can be updated
+    let age = 20;
+    print("let age = " + age);
+    age = 21; // update allowed
+    print("let age (after update) = " + age);
+
+    // 3. const → block-scoped, cannot be redeclared or updated
+    const pi = 3.14;
+    print("const pi = " + pi);
+
+    // Uncommenting below line will throw error:
+    // pi = 3.1416; // ❌ not allowed
+
+    // 4. var vs let scope difference
+    if (true) {
+      var city = "Hyderabad";   // accessible outside block
+      let country = "India";    // only inside block
+      print("Inside block → var city = " + city);
+      print("Inside block → let country = " + country);
+    }
+    print("Outside block → var city = " + city);
+    // print("Outside block → let country = " + country); // ❌ error
+  </script>
+</body>
+</html>

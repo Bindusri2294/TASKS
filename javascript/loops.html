@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Loops Demo</title>
+</head>
+<body>
+  <h2>JavaScript Loops Output</h2>
+  <pre id="output"></pre>
+
+  <script>
+    // Helper function
+    function print(msg) {
+      document.getElementById("output").innerHTML += msg + "\n";
+    }
+
+    // 1. for loop
+    print("1. for loop:");
+    for (let i = 1; i <= 5; i++) {
+      print("i = " + i);
+    }
+    print("");
+
+    // 2. while loop
+    print("2. while loop:");
+    let j = 1;
+    while (j <= 5) {
+      print("j = " + j);
+      j++;
+    }
+    print("");
+
+    // 3. do...while loop
+    print("3. do...while loop:");
+    let k = 1;
+    do {
+      print("k = " + k);
+      k++;
+    } while (k <= 5);
+    print("");
+
+    // 4. for...in loop (objects)
+    print("4. for...in loop:");
+    let person = { name: "Bindu", age: 21, city: "Hyderabad" };
+    for (let key in person) {
+      print(key + " → " + person[key]);
+    }
+    print("");
+
+    // 5. for...of loop (arrays)
+    print("5. for...of loop:");
+    let colors = ["red", "green", "blue"];
+    for (let color of colors) {
+      print(color);
+    }
+    print("");
+
+    // 6. forEach loop (arrays)
+    print("6. forEach loop:");
+    colors.forEach((color, index) => {
+      print("Index " + index + " → " + color);
+    });
+  </script>
+</body>
+</html>

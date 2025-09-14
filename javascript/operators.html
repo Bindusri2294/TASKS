@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Operators Demo</title>
+</head>
+<body>
+  <h2>JavaScript Operators Output</h2>
+  <pre id="output"></pre>
+
+  <script>
+    // Helper function
+    function print(msg) {
+      document.getElementById("output").innerHTML += msg + "\n";
+    }
+
+    let a = 10, b = 3;
+
+    // 1. Arithmetic Operators
+    print("1. Arithmetic Operators");
+    print("Addition: " + (a + b));
+    print("Subtraction: " + (a - b));
+    print("Multiplication: " + (a * b));
+    print("Division: " + (a / b));
+    print("Modulus: " + (a % b));
+    print("Exponentiation: " + (a ** b));
+    print("Increment: " + (++a));
+    print("Decrement: " + (--b));
+    print("");
+
+    // 2. Assignment Operators
+    print("2. Assignment Operators");
+    let x = 5;
+    print("x = " + x);
+    x += 2; print("x += 2 → " + x);
+    x -= 1; print("x -= 1 → " + x);
+    x *= 3; print("x *= 3 → " + x);
+    x /= 2; print("x /= 2 → " + x);
+    x %= 3; print("x %= 3 → " + x);
+    print("");
+
+    // 3. Comparison Operators
+    print("3. Comparison Operators");
+    let p = 5, q = "5";
+    print("p == q → " + (p == q));   // true
+    print("p === q → " + (p === q)); // false
+    print("p != q → " + (p != q));
+    print("p !== q → " + (p !== q));
+    print("p > 3 → " + (p > 3));
+    print("p < 3 → " + (p < 3));
+    print("p >= 5 → " + (p >= 5));
+    print("p <= 5 → " + (p <= 5));
+    print("");
+
+    // 4. Logical Operators
+    print("4. Logical Operators");
+    let isTrue = true, isFalse = false;
+    print("isTrue && isFalse → " + (isTrue && isFalse));
+    print("isTrue || isFalse → " + (isTrue || isFalse));
+    print("!isTrue → " + (!isTrue));
+    print("");
+
+    // 5. Ternary Operator
+    print("5. Ternary Operator");
+    let age = 18;
+    let result = (age >= 18) ? "Adult" : "Minor";
+    print("Age = " + age + " → " + result);
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Events Demo</title>
+</head>
+<body>
+  <h2>JavaScript Events Output</h2>
+
+  <!-- Buttons for Mouse Events -->
+  <button onclick="sayHello()">Click Me</button>
+  <button ondblclick="sayDoubleClick()">Double Click Me</button>
+  <p id="mouseResult"></p>
+
+  <!-- Input for Keyboard Events -->
+  <input type="text" id="nameInput" placeholder="Type your name">
+  <p id="keyResult"></p>
+
+  <!-- Form Event -->
+  <form onsubmit="return formSubmit()">
+    <input type="text" placeholder="Enter something">
+    <button type="submit">Submit</button>
+  </form>
+  <p id="formResult"></p>
+
+  <!-- Window Events -->
+  <p>Resize the window or scroll to see events in action.</p>
+  <p id="windowResult"></p>
+
+  <script>
+    // Mouse Events
+    function sayHello() {
+      document.getElementById("mouseResult").innerText = "Button Clicked!";
+    }
+
+    function sayDoubleClick() {
+      document.getElementById("mouseResult").innerText = "Button Double Clicked!";
+    }
+
+    // Keyboard Events
+    document.getElementById("nameInput").addEventListener("keyup", function(event) {
+      document.getElementById("keyResult").innerText = "You pressed: " + event.key;
+    });
+
+    // Form Event
+    function formSubmit() {
+      document.getElementById("formResult").innerText = "Form Submitted Successfully!";
+      return false; // prevent page refresh
+    }
+
+    // Window Events
+    window.addEventListener("resize", function() {
+      document.getElementById("windowResult").innerText = "Window resized!";
+    });
+
+    window.addEventListener("scroll", function() {
+      document.getElementById("windowResult").innerText = "Window scrolled!";
+    });
+  </script>
+</body>
+</html>

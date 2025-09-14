@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript DOM Demo</title>
+</head>
+<body>
+  <h2 id="title">Original Heading</h2>
+  <p class="text">This is a paragraph.</p>
+  <button id="btnChange">Change Text</button>
+  <button id="btnCreate">Create Element</button>
+  <button id="btnRemove">Remove Paragraph</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    // Helper to print messages
+    function print(msg) {
+      document.getElementById("output").innerHTML += msg + "\n";
+    }
+
+    // 1. Access elements
+    let heading = document.getElementById("title");
+    let para = document.querySelector(".text");
+
+    // 2. Event to change text & style
+    document.getElementById("btnChange").onclick = function () {
+      heading.innerHTML = "Heading Changed!";
+      heading.style.color = "blue";
+      para.innerHTML = "Paragraph text updated!";
+      para.style.fontWeight = "bold";
+      print("Changed text & style using DOM.");
+    };
+
+    // 3. Create new element
+    document.getElementById("btnCreate").onclick = function () {
+      let newElement = document.createElement("p");
+      newElement.innerHTML = "✨ New paragraph added dynamically!";
+      newElement.style.color = "green";
+      document.body.appendChild(newElement);
+      print("New element created and added.");
+    };
+
+    // 4. Remove existing element
+    document.getElementById("btnRemove").onclick = function () {
+      if (para) {
+        para.remove(); // remove paragraph
+        para = null; // reset variable
+        print("Paragraph removed from DOM.");
+      } else {
+        print("Paragraph already removed.");
+      }
+    };
+  </script>
+</body>
+</html>

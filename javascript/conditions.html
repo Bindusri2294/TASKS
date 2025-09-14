@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Conditions Demo</title>
+</head>
+<body>
+  <h2>JavaScript Conditions Output</h2>
+  <pre id="output"></pre>
+
+  <script>
+    // Helper function
+    function print(msg) {
+      document.getElementById("output").innerHTML += msg + "\n";
+    }
+
+    // 1. if condition
+    let age = 20;
+    if (age >= 18) {
+      print("1. if → You are eligible to vote.");
+    }
+
+    // 2. if...else
+    let marks = 35;
+    if (marks >= 40) {
+      print("2. if...else → Pass");
+    } else {
+      print("2. if...else → Fail");
+    }
+
+    // 3. if...else if...else
+    let score = 85;
+    if (score >= 90) {
+      print("3. Grade: A+");
+    } else if (score >= 75) {
+      print("3. Grade: A");
+    } else if (score >= 60) {
+      print("3. Grade: B");
+    } else {
+      print("3. Grade: C");
+    }
+
+    // 4. Nested if
+    let number = 15;
+    if (number > 0) {
+      if (number % 2 === 0) {
+        print("4. Nested if → Positive Even");
+      } else {
+        print("4. Nested if → Positive Odd");
+      }
+    }
+
+    // 5. switch case
+    let day = 3;
+    switch (day) {
+      case 1:
+        print("5. switch → Monday");
+        break;
+      case 2:
+        print("5. switch → Tuesday");
+        break;
+      case 3:
+        print("5. switch → Wednesday");
+        break;
+      case 4:
+        print("5. switch → Thursday");
+        break;
+      case 5:
+        print("5. switch → Friday");
+        break;
+      case 6:
+        print("5. switch → Saturday");
+        break;
+      case 7:
+        print("5. switch → Sunday");
+        break;
+      default:
+        print("5. switch → Invalid day");
+    }
+  </script>
+</body>
+</html>

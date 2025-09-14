@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Data Types Demo</title>
+</head>
+<body>
+  <h2>JavaScript Data Types Output</h2>
+  <pre id="output"></pre>
+
+  <script>
+    // Helper function to print neatly
+    function print(msg) {
+      document.getElementById("output").innerHTML += msg + "\n";
+    }
+
+    // 1. String
+    let str = "Hello World";
+    print("1. String: " + str + " (type = " + typeof str + ")");
+
+    // 2. Number
+    let num = 100;
+    let price = 99.99;
+    print("2. Number: " + num + ", " + price + " (type = " + typeof num + ")");
+
+    // 3. Boolean
+    let isOnline = true;
+    let isOffline = false;
+    print("3. Boolean: " + isOnline + ", " + isOffline + " (type = " + typeof isOnline + ")");
+
+    // 4. Undefined
+    let x;
+    print("4. Undefined: " + x + " (type = " + typeof x + ")");
+
+    // 5. Null
+    let y = null;
+    print("5. Null: " + y + " (type = " + typeof y + ")"); // object (JS bug)
+
+    // 6. Object
+    let person = { name: "Bindu", age: 21 };
+    print("6. Object: " + JSON.stringify(person) + " (type = " + typeof person + ")");
+
+    // 7. Array
+    let colors = ["red", "green", "blue"];
+    print("7. Array: " + colors + " (type = " + typeof colors + ")"); // object
+
+    // 8. Function
+    function greet() {
+      return "Hello from function!";
+    }
+    print("8. Function: " + greet() + " (type = " + typeof greet + ")");
+
+    // 9. Symbol
+    let sym = Symbol("id");
+    print("9. Symbol: " + sym.toString() + " (type = " + typeof sym + ")");
+
+    // 10. BigInt
+    let bigNum = 123456789012345678901234567890n;
+    print("10. BigInt: " + bigNum + " (type = " + typeof bigNum + ")");
+  </script>
+</body>
+</html>
