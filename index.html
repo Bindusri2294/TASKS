@@ -1,167 +1,244 @@
-<!DOCTYPE html>
+<!--
+  My First Webpage
+  - This single-file HTML demonstrates tasks 1-15 from your assignment.
+  - It includes step-by-step comments, working examples, and CSS styling.
+  - Replace placeholder text/images/audio/video with your own files or links as needed.
+-->
+
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bindhu’s Tasks</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My First Webpage</title>
+
+  <!-- STEP 12: Google Fonts (import two fonts: one for headings, one for paragraphs) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+
   <style>
+    /* ========== Global styles ========== */
+    /* STEP 11: Background and text colors */
     body {
+      background-color: #dff3ff; /* light blue background */
+      font-family: 'Roboto', sans-serif; /* paragraph font from Google Fonts */
       margin: 0;
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Navbar */
-    .navbar {
-      background: #333;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: flex-start;
-    }
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-    .navbar li {
-      position: relative;
-    }
-    .navbar a {
-      color: white;
-      padding: 10px 15px;
-      display: block;
-      text-decoration: none;
-    }
-    .navbar a:hover {
-      background: #555;
-    }
-    /* Dropdown */
-    .navbar ul ul {
-      display: none;
-      position: absolute;
-      background: #444;
-      top: 100%;
-      left: 0;
-      min-width: 150px;
-    }
-    .navbar ul li:hover > ul {
-      display: block;
-    }
-
-    /* Layout (Sidebar + Main) */
-    .layout {
-      flex: 1;
-      display: flex;
-    }
-    .sidebar {
-      width: 200px;
-      background: #f4f4f4;
       padding: 20px;
-    }
-    .main {
-      flex: 1;
-      padding: 20px;
-      background: #fafafa;
+      color: #333;
     }
 
-    /* Cards inside main */
-    .cards {
-      display: flex;
-      gap: 20px;
-    }
-    .card {
-      flex: 1;
-      background: white;
-      padding: 20px;
-      margin: 10px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+    /* Headings use a different font */
+    h1, h2, h3 { font-family: 'Playfair Display', serif; color: #063970; /* dark blue */ }
+    p { color: #666; /* gray paragraphs */ }
 
-    /* Image Gallery (Grid) */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 20px;
+    hr { border: 0; height: 1px; background: #ccc; margin: 20px 0; }
+
+    /* ========== Navigation (STEP 8) ========== */
+    nav ul { list-style: none; padding: 0; margin: 10px 0 20px 0; display: flex; gap: 16px; }
+    nav a { text-decoration: none; padding: 8px 10px; display: inline-block; color: #063970; }
+    nav a:hover { text-decoration: underline; }
+
+    /* ========== Table (STEP 4) ========== */
+    table { border-collapse: collapse; width: 100%; max-width: 700px; }
+    th, td { border: 1px solid #bbb; padding: 8px; text-align: left; }
+
+    /* ========== Form (STEP 5) ========== */
+    form label { display: block; margin: 8px 0 4px; }
+    input[type="text"], input[type="email"] { padding: 8px; width: 100%; max-width: 320px; box-sizing: border-box; }
+
+    /* ========== Button hover effect (STEP 14) ========== */
+    .btn {
+      background: #063970; color: white; padding: 10px 16px; border: none; border-radius: 6px; cursor: pointer; transition: all .18s ease;
     }
-    .gallery img {
-      width: 100%;
-      border-radius: 6px;
-    }
+    .btn:hover { background: white; color: #063970; border: 1px solid #063970; cursor: pointer; transform: translateY(-2px); }
+
+    /* ========== Box with border, padding, margin (STEP 13) ========== */
+    .box { border: 2px solid #000; padding: 20px; margin: 30px 0; }
+
+    /* ========== Card (STEP 15) ========== */
+    .card { width: 300px; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.12); border: 1px solid #e0e0e0; }
+    .card img { width: 100%; display: block; }
+    .card-content { padding: 14px; }
+
+    /* Small responsive adjustments */
     @media (max-width: 600px) {
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Sticky Footer */
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: sticky;
-      bottom: 0;
+      nav ul { flex-direction: column; }
+      .card { width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
+  <!-- ========== STEP 1: Page title and main heading ========== -->
+  <header>
+    <!-- h1 with your name - replace 'Bindusri' with your own name if needed -->
+    <h1>Bindusri</h1>
+    <!-- A short paragraph describing yourself -->
+    <p>Hello! I'm Bindusri — learning HTML, CSS and basic web development. This page shows examples for tasks 1-15.</p>
+    <hr>
+  </header>
+
+  <!-- ========== STEP 2: Image with alt text ========== -->
+  <section>
+    <h2>Profile Image</h2>
+    <!-- Use a local image or an internet image. `alt` provides descriptive text for screen readers and when image fails to load. -->
+    <img src="https://via.placeholder.com/200" alt="Profile placeholder" width="200" height="200">
+  </section>
+
+  <!-- ========== STEP 3: Ordered and unordered lists ========== -->
+  <section>
+    <h2>Favorites</h2>
+    <h3>Top 5 Movies (ordered list)</h3>
+    <ol>
+      <li>bahubali</li>
+      <li>varsham</li>
+      <li>fidha</li>
+      <li>vana</li>
+      <li>spider</li>
+    </ol>
+
+    <h3>Favorite Fruits (unordered list)</h3>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li>
-        <a href="#">Menu ▼</a>
-        <ul>
-          <li><a href="#">Link 1</a></li>
-          <li><a href="#">Link 2</a></li>
-          <li><a href="#">Link 3</a></li>
-        </ul>
-      </li>
-      <li><a href="#">About</a></li>
+      <li>Mango</li>
+      <li>Banana</li>
+      <li>Apple</li>
+      <li>Grapes</li>
+      <li>Orange</li>
+    </ul>
+  </section>
+
+  <!-- ========== STEP 4: Table ========== -->
+  <section>
+    <h2>Student Marks Table</h2>
+    <!-- table with 3 columns and 3 rows of data -->
+    <table>
+      <tr>
+        <th>Student Name</th>
+        <th>Roll Number</th>
+        <th>Marks</th>
+      </tr>
+      <tr>
+        <td>Asha</td>
+        <td>01</td>
+        <td>85</td>
+      </tr>
+      <tr>
+        <td>Ravi</td>
+        <td>02</td>
+        <td>92</td>
+      </tr>
+      <tr>
+        <td>Meena</td>
+        <td>03</td>
+        <td>78</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ========== STEP 5: Simple form ========== -->
+  <section>
+    <h2>Contact Form</h2>
+    <!-- A simple form with name, email and submit button. `type="email"` helps browsers validate the input. -->
+    <form action="#" method="post">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" placeholder="Your name">
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com">
+
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </section>
+
+  <!-- ========== STEP 6: Hyperlinks ========== -->
+  <section>
+    <h2>Useful Links</h2>
+    <!-- Link to Google opens in the same tab (default behavior) -->
+    <a href="https://www.google.com">Google (same tab)</a><br>
+    <!-- Link to YouTube opens in a new tab using target="_blank". rel="noopener" improves security. -->
+    <a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube (new tab)</a>
+  </section>
+
+  <!-- ========== STEP 7: Embed a YouTube video ========== -->
+  <section>
+    <h2>Embedded YouTube Video</h2>
+    <!-- Use the YouTube "embed" URL format: https://www.youtube.com/embed/VIDEO_ID  -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ysz5S6PUM-U" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <!-- ========== STEP 8: Navigation menu (horizontal) ========== -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Flex Layout -->
-  <div class="layout">
-    <aside class="sidebar">
-      <h3>Sidebar</h3>
-      <p>Links, menus, or info here.</p>
-    </aside>
+  <!-- ========== STEP 9: Semantic tags ========== -->
+  <section id="home">
+    <header>
+      <h2>Introduction</h2>
+    </header>
 
-    <main class="main">
-      <h2>Main Content</h2>
+    <article>
+      <h3>My Hobby</h3>
+      <p>I like sketching and creating small web projects in my free time. Semantic tags (header, section, article, footer) help structure the page for humans and machines (search engines & screen readers).</p>
+    </article>
 
-      <!-- Cards -->
-      <div class="cards">
-        <div class="card">Card 1</div>
-        <div class="card">Card 2</div>
-        <div class="card">Card 3</div>
+    <footer>
+      <p>Made by Bindusri</p>
+    </footer>
+  </section>
+
+  <!-- ========== STEP 10: Audio and Video elements ========== -->
+  <section>
+    <h2>Audio and Video</h2>
+    <p>Audio sample (use your MP3 or an online URL):</p>
+    <audio controls>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <p>Video sample (MP4):</p>
+    <video controls width="480">
+      <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- ========== STEP 11: Background & text colors ========== -->
+  <!-- Already implemented in the <style> block above: body background, heading color, paragraph color -->
+
+  <!-- ========== STEP 13: Example of border, margin, padding ========== -->
+  <section>
+    <h2>Box Example (border / padding / margin)</h2>
+    <div class="box">
+      This box demonstrates a border (2px solid black), padding (20px) and margin (30px).
+    </div>
+  </section>
+
+  <!-- ========== STEP 14: Hover effect on a button ========== -->
+  <section>
+    <h2>Hover Button</h2>
+    <button class="btn">Hover me</button>
+  </section>
+
+  <!-- ========== STEP 15: Simple Card Layout ========== -->
+  <section>
+    <h2>Simple Card</h2>
+    <div class="card" aria-label="Example card">
+      <img src="https://via.placeholder.com/300x150" alt="Card image">
+      <div class="card-content">
+        <h3>Card Title</h3>
+        <p>This is a short description inside the card. Cards are useful UI components for grouping related content.</p>
       </div>
+    </div>
+  </section>
 
-      <!-- Image Gallery -->
-      <div class="gallery">
-        <img src="https://via.placeholder.com/300" alt="Image 1">
-        <img src="https://via.placeholder.com/300" alt="Image 2">
-        <img src="https://via.placeholder.com/300" alt="Image 3">
-        <img src="https://via.placeholder.com/300" alt="Image 4">
-      </div>
-    </main>
-  </div>
-
-  <!-- Sticky Footer -->
-  <footer>
-    <p>Sticky Footer © 2025</p>
+  <!-- Footer with copyright/info -->
+  <footer style="margin-top:40px;">
+    <p>&copy; 2025 Bindusri — Practice webpage</p>
   </footer>
 
 </body>
